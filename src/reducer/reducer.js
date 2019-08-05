@@ -2,7 +2,7 @@ import * as types from "../actions/types";
 
 const initialState = {
   upcoming: [],
-  count: 100
+  count: 0
 };
 
 export default function reduce(state = initialState, action) {

@@ -6,40 +6,48 @@ import * as actions from "./actions/actions";
 
 class Home extends React.Component {
 
-  state = {
-    react_state: 0
+  componentDidMount() {
+    const { actions } = this.props;
+    actions.getUpcoming();
   }
 
-  handleInc() {
-    this.setState({
-      react_state: this.state.react_state + 1
-    })
-  }
+  // state = {
+  //   react_state: 0
+  // }
 
-  handleDec() {
-    this.setState({
-      react_state: this.state.react_state - 1
-    })
-  }
+  // handleInc() {
+  //   this.setState({
+  //     react_state: this.state.react_state + 1
+  //   })
+  // }
 
+  // handleDec() {
+  //   this.setState({
+  //     react_state: this.state.react_state - 1
+  //   })
+  // }
 
   render() {
     return (
-
-      <div>
-        <button onClick={() => this.handleInc()}>+</button>
-        <br />
-        <span>{this.state.react_state}</span>
-        <br />
-        <button onClick={() => this.handleDec()}>-</button>
-      </div>
       // <div>
-      //   <button onClick={() => this.props.actions.incCount()}>+</button>
+      //   <button onClick={() => this.handleInc()}>+</button>
       //   <br />
-      //   <span>{this.props.count}</span>
+      //   <span>{this.state.react_state}</span>
       //   <br />
-      //   <button onClick={() => this.props.actions.decCount()}>-</button>
+      //   <button onClick={() => this.handleDec()}>-</button>
       // </div>
+      <div>
+        <div>
+          <button onClick={() => this.props.actions.incCount()}>+</button>
+          <br />
+          <span>{this.props.count}</span>
+          <br />
+          <button onClick={() => this.props.actions.decCount()}>-</button>
+        </div>
+        <div>
+          {JSON.stringify(this.props.upcoming)}
+        </div>
+      </div>
     )
   }
 }
